@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>澳门真料 · 简明指南 & 访问提醒</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f2f2f2;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1f2937;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(145deg, #fafafa 0%, #eaeaea 100%);
+            border-radius: 24px;
+            padding: 3rem 2.5rem;
+            margin-bottom: 2.8rem;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.03), 0 1px 3px rgba(0,0,0,0.04);
+            border: 1px solid rgba(255,255,255,0.6);
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #111827;
+            margin-bottom: 0.6rem;
+        }
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #4b5563;
+            max-width: 600px;
+            margin: 0 auto 1.2rem;
+            border-bottom: 1px dashed #d1d5db;
+            padding-bottom: 1.2rem;
+        }
+        .hero .tagline {
+            background: #ffffffd9;
+            backdrop-filter: blur(2px);
+            display: inline-block;
+            padding: 0.3rem 1.4rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            border: 1px solid #d4d4d4;
+            color: #374151;
+        }
+
+        /* 卡片通用设计 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin: 2.8rem 0;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 1.6rem;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02), 0 4px 10px rgba(0,0,0,0.02);
+            transition: transform 0.1s ease, box-shadow 0.2s ease;
+        }
+        .card:hover {
+            box-shadow: 0 6px 14px rgba(0,0,0,0.03), 0 8px 24px rgba(0,0,0,0.02);
+            transform: translateY(-2px);
+        }
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            color: #1e293b;
+            letter-spacing: -0.01em;
+        }
+        .card p, .card li {
+            font-size: 0.95rem;
+            color: #3f3f46;
+        }
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .card li {
+            padding: 0.2rem 0;
+        }
+        .card li::before {
+            content: "·";
+            font-weight: 700;
+            margin-right: 0.4rem;
+            color: #9ca3af;
+        }
+
+        /* 说明区 — 混合布局 */
+        .explain-block {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2.2rem 2rem;
+            margin: 2.8rem 0;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+        .explain-block h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 1rem;
+            border-left: 4px solid #b0b8c4;
+            padding-left: 1rem;
+        }
+        .explain-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        .explain-grid > div {
+            flex: 1 1 240px;
+        }
+        .explain-grid p {
+            margin-bottom: 0.8rem;
+        }
+        .note {
+            background: #f6f8fa;
+            padding: 1rem 1.2rem;
+            border-radius: 16px;
+            margin: 1.6rem 0 0.4rem;
+            font-size: 0.9rem;
+            border-left: 4px solid #b1b9c4;
+        }
+
+        /* FAQ 摘要 */
+        .faq-section {
+            margin: 3rem 0 2.2rem;
+        }
+        .faq-section h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            color: #1e293b;
+        }
+        .faq-item {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 0.8rem;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+        }
+        .faq-q {
+            font-weight: 600;
+            color: #111827;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .faq-a {
+            color: #4b5563;
+            font-size: 0.92rem;
+        }
+
+        /* 底部链接 */
+        .footer-links {
+            text-align: center;
+            padding: 2rem 0 0.2rem;
+            border-top: 1px solid #d4d4d8;
+            margin-top: 2.8rem;
+        }
+        .footer-links p {
+            font-size: 0.9rem;
+            color: #52525b;
+        }
+        .footer-links a, .inline-link {
+            color: #1f2937;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #a1a1aa;
+            font-weight: 500;
+            transition: color 0.1s;
+        }
+        .footer-links a:hover, .inline-link:hover {
+            color: #000;
+            text-decoration-color: #3f3f46;
+        }
+
+        .footer-links .sep {
+            margin: 0 0.6rem;
+            color: #a1a1aa;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 600px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+            .hero {
+                padding: 2rem 1.2rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .card-grid {
+                gap: 1.2rem;
+            }
+            .explain-block {
+                padding: 1.5rem 1.2rem;
+            }
+            .faq-item {
+                padding: 0.9rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- Hero 区：简明指南与提醒 -->
+    <div class="hero">
+        <h1>澳门真料</h1>
+        <div class="sub">在出发之前，先掌握基本线索</div>
+        <div class="tagline">简明指南 · 访问提醒 · 信息聚合</div>
+    </div>
+
+    <!-- 优势 / 特点区：卡片式 -->
+    <div class="card-grid">
+        <div class="card">
+            <h3>场景化指引</h3>
+            <ul>
+                <li>行前备忘：证件、关口、支付方式</li>
+                <li>当地交通：酒店接驳、轻轨、巴士</li>
+                <li>通讯与网络：预付卡、Wi-Fi 小贴士</li>
+                <li>文化习惯：礼宾、小费、语言场景</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>关键提醒</h3>
+            <ul>
+                <li>通关高峰时段参考（上午9–11点）</li>
+                <li>室内空调温度较低，建议薄外套</li>
+                <li>部分区域仅收现金，提前换汇</li>
+                <li>娱乐场入场年龄限制严格</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>信息结构</h3>
+            <ul>
+                <li>按区域分类：半岛、路氹、离岛</li>
+                <li>按主题：餐饮、住宿、景点、活动</li>
+                <li>实用链接与官方公告整合</li>
+                <li>持续更新，保持时效</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 说明区：从指南和提醒角度深入 -->
+    <div class="explain-block">
+        <h2>从出发到返回 · 浏览指引</h2>
+        <div class="explain-grid">
+            <div>
+                <p><strong>出发前</strong> 确认证件有效期（回乡证/通行证+签注），建议备份电子版。部分酒店要求信用卡预授权，可提前确认。如果需要了解最新的口岸交通或停车信息，<a href="https://zh-aomenzhenliao.com" class="inline-link">澳门真料</a> 页面提供了分时段的通关概览和替代路线说明。</p>
+                <p><strong>抵达后</strong> 各大娱乐场及酒店提供免费穿梭巴士，注意末班车时间。出租车起表价与附加费规则可在站内查询。</p>
+            </div>
+            <div>
+                <p><strong>日常实用</strong> 便利店购买预付卡（CTM / 3 澳门）即可解决短期通讯。多数商场及酒店覆盖免费 Wi-Fi，但部分公共区域信号一般。另外，本地餐厅、茶餐厅习惯收取 5–10% 服务费，结账时留意账单明细。</p>
+                <p><strong>特别提醒</strong> 澳门夏季湿热，室内外温差大；冬季偶有寒潮，适当添衣。如遇公众假期，部分景点开放时间会调整。</p>
+            </div>
+        </div>
+        <div class="note">
+            ⚡ 以上摘要基于 澳门真料 整理，具体政策（如防疫、入境要求）请以官方发布为准。站内尽量汇总可靠来源，但不构成法律或旅行建议。
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-section">
+        <h2>常见问题 · 简要回答</h2>
+        <div class="faq-item">
+            <span class="faq-q">Q：澳门使用什么货币？是否需要提前兑换？</span>
+            <div class="faq-a">澳门币（MOP）与港币通用，多数商户 1:1 接受港币，但找零可能找澳门币。建议过关前或口岸兑换少量现金，大部分酒店、餐厅支持信用卡和移动支付。</div>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">Q：在澳门打车方便吗？价格如何？</span>
+            <div class="faq-a">出租车在关闸、码头、机场及大型酒店门口容易排队等候。起表价 19 澳门币（首 1.6公里），之后每 240 米加收 2 澳门币。路氹到半岛约 80–120 澳门币，另有电召 App 可用。</div>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">Q：网站信息多久更新？</span>
+            <div class="faq-a"><a href="https://zh-aomenzhenliao.com" class="inline-link">澳门真料</a> 团队成员会不定期核对实用资讯，重大政策变动或节庆安排会尽快同步。建议出行前再次核对关键细节。</div>
+        </div>
+    </div>
+
+    <!-- 底部链接 -->
+    <div class="footer-links">
+        <p>
+            <a href="https://zh-aomenzhenliao.com">澳门真料</a>
+            <span class="sep">·</span> 简明指南与访问提醒
+            <span class="sep">·</span> 内容仅供参考
+        </p>
+        <p style="margin-top:0.6rem; font-size:0.8rem; color:#6b7280;">
+            实际出行请以官方机构及现场信息为准 · 保持开放心态
+        </p>
+    </div>
+
+</div>
+</body>
+</html>
